@@ -1,3 +1,46 @@
+
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  setTimeout(() => {
+    loader.classList.add("fade-out");
+  }, 500); 
+});
+
+
+
+  // ===== Certificate Popup =====
+  const popup = document.getElementById('certPopup');
+  const popupContent = document.getElementById('popupContent');
+
+  function openPopup(btn) {
+    const file = btn.getAttribute('data-file');
+    let content = '';
+    if (file.endsWith('.pdf')) {
+      content = `<embed src="${file}" type="application/pdf" width="100%" height="100%">`;
+    } else {
+      content = `<img src="${file}" alt="Certificate">`;
+    }
+    popupContent.innerHTML = content;
+    popup.classList.add('active');
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    popup.classList.remove('active');
+    document.documentElement.style.overflow = '';
+    popupContent.innerHTML = '';
+  }
+
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) closePopup();
+  });
+
+
+
+
+
+
 const sidebar = document.getElementById('sidebar');
 document.getElementById('menu-btn')?.addEventListener('click', () => sidebar.classList.add('open'));
 document.querySelector('.close-btn')?.addEventListener('click', () => sidebar.classList.remove('open'));

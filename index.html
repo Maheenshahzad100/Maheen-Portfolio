@@ -29,6 +29,8 @@
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#skills">Skills</a>
         <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#education">Education</a>
+        <a class="nav-link" href="#certificates">Certificates</a>
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
@@ -58,7 +60,7 @@
     <p class="hero-subtitle">
       Software Developer passionate about creating interactive, modern experiences with clean design.
     </p>
-    <a href="assets/MaheenShahzad_Software_Developer_resume.pdf" target="blank" download class="btn btn-primary mt-3">Download CV</a>
+    <a href="assets/Maheen_Shahzad_software_Developer_resume.pdf" target="blank" download class="btn btn-primary mt-3">Download CV</a>
   </div>
 </section>
 
@@ -89,6 +91,7 @@
             </div>
           </div>
         </section>
+        
 
        <!-- SKILLS -->
 
@@ -245,6 +248,129 @@
   </div>
 </section>
 
+
+
+
+
+
+
+<!-- =====  Loader Start ===== -->
+<div id="loader">
+  <div class="loader-content">
+    <div class="ring-wrap">
+      <div class="ring"></div>
+      <span class="loader-initials">MS</span>
+    </div>
+    <h2 class="loader-tagline">Crafting <span>Digital Experiences</span></h2>
+  </div>
+</div>
+<!-- =====  Loader End ===== -->
+
+
+
+<!-- ===== EDUCATION SECTION ===== -->
+<section id="education" class="section section-navy">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+
+    <div class="timeline">
+
+      <!-- Advanced Diploma -->
+      <div class="timeline-item">
+        <div class="timeline-icon pulse"><i class="fas fa-laptop-code"></i></div>
+        <div class="timeline-content">
+          <h3>Advance Diploma in Software Engineering (Aptech Learning)</h3>
+          <p><strong>Institute:</strong> Aptech Computer Education</p>
+          <p><strong>Duration:</strong> 2023 – Ongoing</p>
+          <p><strong>Overview:</strong> Focused on full-stack development, system design, and application deployment using modern frameworks and tools.</p>
+          <ul class="edu-skills">
+            <li>Front-End & Back-End Development</li>
+            <li>Database Management (MySQL, SQL Server)</li>
+            <li>Cloud Integration & RESTful APIs</li>
+            <li>Project Management & Agile Practices</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Intermediate -->
+      <div class="timeline-item">
+        <div class="timeline-icon pulse"><i class="fas fa-graduation-cap"></i></div>
+        <div class="timeline-content">
+          <h3>Intermediate in Computer Science (ICS)</h3>
+          <p><strong>Institute:</strong> Govt. Degree College</p>
+          <p><strong>Duration:</strong> 2022 – 2024</p>
+          <p><strong>Overview:</strong> Built strong foundations in programming, logic-building, and problem-solving skills essential for software applications.</p>
+          <ul class="edu-skills">
+            <li>Programming Fundamentals</li>
+            <li>Mathematics & Logical Reasoning</li>
+            <li>Networking & Computer Architecture</li>
+            <li>Software Documentation & Reports</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== CERTIFICATE SECTION ===== -->
+<section id="certificates" class="section section-darkblue">
+  <div class="container">
+    <h2 class="section-title"> Certificates</h2>
+
+    <div class="cert-grid">
+      <!-- CPISM -->
+      <div class="cert-box">
+        <h3>CPISM Certificate</h3>
+        <p><strong>Institute:</strong> Aptech Computer Education</p>
+        <p><strong>Percentage:</strong> 84%</p>
+        <p>Completed CPISM with distinction  focused on web design, responsive front-end structure, and SEO optimization.</p>
+        <div class="skills">
+          <h5>Key Skills:</h5>
+          <p>MS Office, HTML, CSS, JavaScript, Bootstrap, jQuery, UI/UX, SEO</p>
+        </div>
+        <button class="view-btn" data-file="assets/Maheen_Shahzad_Cpism_certificate.pdf" onclick="openPopup(this)">
+          <i class="fas fa-eye"></i> View Certificate
+        </button>
+      </div>
+
+      <!-- DPISM -->
+      <div class="cert-box coming">
+        <h3>DPISM Certificate</h3>
+        <p><strong>Status:</strong> Coming Soon</p>
+        <p> Diploma in Information System Management  focused on server-side development, databases, IT tools and Entrepreneurship.</p>
+        <div class="skills">
+          <h5>Upcoming Skills:</h5>
+          <p>Git & GitHub, JSON, XML, MySQL, PHP, Laravel, Entrepreneurship</p>
+        </div>
+        <div class="coming-tag">Coming Soon</div>
+      </div>
+
+      <!-- HDSE(I) -->
+      <div class="cert-box coming">
+        <h3>HDSE (I) Certificate</h3>
+        <p><strong>Status:</strong> Coming Soon</p>
+        <p>Higher Diploma in Software Engineering (Part I) focusing on full-stack development, APIs Development / Integration. database management, and application logic.</p>
+        <div class="skills">
+          <h5>Upcoming Skills:</h5>
+          <p>SQL, ASP.NET, C#, AngularJS</p>
+        </div>
+        <div class="coming-tag">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POPUP ===== -->
+<div id="certPopup" class="popup" aria-hidden="true">
+  <div class="popup-inner" role="dialog" aria-modal="true">
+    <button class="popup-close" aria-label="Close" onclick="closePopup()">×</button>
+    <div id="popupContent"></div>
+  </div>
+</div>
+
         <!-- PROJECTS -->
 <section id="projects" class="section">
   <div class="container" data-aos="fade-up">
@@ -315,6 +441,8 @@
 </section>
 
 
+
+
         <!-- CONTACT -->
         <section id="contact" class="section">
           <div class="container" data-aos="fade-up">
@@ -371,6 +499,33 @@
 
 
 
+<script>
+  const popup = document.getElementById('certPopup');
+  const popupContent = document.getElementById('popupContent');
+
+  function openPopup(btn) {
+    const file = btn.getAttribute('data-file');
+    let content = '';
+    if (file.endsWith('.pdf')) {
+      content = `<embed src="${file}" type="application/pdf" width="100%" height="100%">`;
+    } else {
+      content = `<img src="${file}" alt="Certificate">`;
+    }
+    popupContent.innerHTML = content;
+    popup.classList.add('active');
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    popup.classList.remove('active');
+    document.documentElement.style.overflow = '';
+    popupContent.innerHTML = '';
+  }
+
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) closePopup();
+  });
+</script>
 
 </body>
 
