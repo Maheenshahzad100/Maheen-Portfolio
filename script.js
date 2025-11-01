@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   setTimeout(() => {
     loader.classList.add("fade-out");
-  }, 500); 
+  }, 200); 
 });
 
 
@@ -40,10 +40,24 @@ window.addEventListener("load", () => {
 
 
 
-
+let mobHeader=document.querySelector(".mobile-header");
 const sidebar = document.getElementById('sidebar');
-document.getElementById('menu-btn')?.addEventListener('click', () => sidebar.classList.add('open'));
-document.querySelector('.close-btn')?.addEventListener('click', () => sidebar.classList.remove('open'));
+document.getElementById('menu-btn')?.addEventListener('click', () => {
+  sidebar.classList.add('open');
+  mobHeader.style.display="none";
+});
+document.querySelector('.close-btn')?.addEventListener('click', () => {sidebar.classList.remove('open')
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 991) {
+    mobHeader.style.display = "none";
+  } else if (!sidebar.classList.contains("open")) {
+    mobHeader.style.display = "flex";
+  }
+});
+
+
+
+});
 
 const links = document.querySelectorAll('nav.nav a');
 links.forEach(l => {

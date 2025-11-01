@@ -43,13 +43,13 @@
 
     <!-- MAIN -->
     <div id="main">
-      <header class="mobile-header d-md-none d-flex justify-content-between align-items-center p-3">
+      <header class="mobile-header ">
         <div class="mobile-title">Maheen Shahzad</div>
         <button id="menu-btn" class="btn btn-sm btn-outline-light">Menu</button>
       </header>
 
       <main>
-        <!-- HERO (Davis style with overlay background image) -->
+        <!-- HERO -->
       <section id="home" class="hero">
  <canvas id="hero-bubbles"></canvas>
   <div class="hero-content" data-aos="fade-up">
@@ -281,7 +281,7 @@
         <div class="timeline-content">
           <h3>Advance Diploma in Software Engineering (Aptech Learning)</h3>
           <p><strong>Institute:</strong> Aptech Computer Education</p>
-          <p><strong>Duration:</strong> 2023 – Ongoing</p>
+          <p><strong>Duration:</strong> 2024 – Ongoing</p>
           <p><strong>Overview:</strong> Focused on full-stack development, system design, and application deployment using modern frameworks and tools.</p>
           <ul class="edu-skills">
             <li>Front-End & Back-End Development</li>
@@ -297,8 +297,8 @@
         <div class="timeline-icon pulse"><i class="fas fa-graduation-cap"></i></div>
         <div class="timeline-content">
           <h3>Intermediate in Computer Science (ICS)</h3>
-          <p><strong>Institute:</strong> Govt. Degree College</p>
-          <p><strong>Duration:</strong> 2022 – 2024</p>
+          <p><strong>Institute:</strong> Women's College Shahrah - e - Liaquat</p>
+          <p><strong>Duration:</strong> 2024 – Ongoing</p>
           <p><strong>Overview:</strong> Built strong foundations in programming, logic-building, and problem-solving skills essential for software applications.</p>
           <ul class="edu-skills">
             <li>Programming Fundamentals</li>
@@ -499,33 +499,6 @@
 
 
 
-<script>
-  const popup = document.getElementById('certPopup');
-  const popupContent = document.getElementById('popupContent');
-
-  function openPopup(btn) {
-    const file = btn.getAttribute('data-file');
-    let content = '';
-    if (file.endsWith('.pdf')) {
-      content = `<embed src="${file}" type="application/pdf" width="100%" height="100%">`;
-    } else {
-      content = `<img src="${file}" alt="Certificate">`;
-    }
-    popupContent.innerHTML = content;
-    popup.classList.add('active');
-    document.documentElement.style.overflow = 'hidden';
-  }
-
-  function closePopup() {
-    popup.classList.remove('active');
-    document.documentElement.style.overflow = '';
-    popupContent.innerHTML = '';
-  }
-
-  popup.addEventListener('click', (e) => {
-    if (e.target === popup) closePopup();
-  });
-</script>
 
 </body>
 
