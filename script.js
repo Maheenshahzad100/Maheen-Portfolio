@@ -47,6 +47,7 @@ document.getElementById('menu-btn')?.addEventListener('click', () => {
   mobHeader.style.display="none";
 });
 document.querySelector('.close-btn')?.addEventListener('click', () => {sidebar.classList.remove('open')
+    mobHeader.style.display="flex";
 window.addEventListener("resize", () => {
   if (window.innerWidth > 991) {
     mobHeader.style.display = "none";
