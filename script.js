@@ -255,3 +255,29 @@ function animateProjects() {
 
 window.addEventListener('scroll', animateProjects);
 window.addEventListener('load', animateProjects);
+document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Remove active class from all buttons and add to clicked one
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filterValue = button.getAttribute("data-filter");
+
+            projectCards.forEach(card => {
+                const category = card.getAttribute("data-category");
+
+                if (filterValue === "all" || category === filterValue) {
+                    card.classList.remove("hide");
+                    card.classList.add("show");
+                } else {
+                    card.classList.remove("show");
+                    card.classList.add("hide");
+                }
+            });
+        });
+    });
+});

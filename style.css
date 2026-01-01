@@ -195,42 +195,125 @@ nav.nav a:hover, nav.nav a.active {
 }
 .lead { color: var(--muted); line-height: 1.8; }
 
-#skills { background: radial-gradient(circle at top, rgba(255,179,0,0.06), transparent 80%); }
 
-.skills-wrapper { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1rem; }
 
-.skill-tag {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: var(--text);
-  font-size: 0.95rem;
-  border-radius: 20px;
-  padding: 0.6rem 1rem;
-  display: inline-block;
-  margin: 0.3rem;
-  transition: all 0.25s ease;
+#skills {
+    background: radial-gradient(circle at top, rgba(255,179,0,0.06), transparent 80%);
 }
-.skill-tag:hover { background: linear-gradient(90deg,var(--accent1),var(--accent2)); color: #000; }
 
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap:25px; justify-items:center; }
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+    gap: 25px;
+    justify-items: center;
+}
 
-.skill-ring { position: relative; width:120px; height:120px; cursor:pointer; }
-.skill-ring svg { transform: rotate(-90deg); }
-.skill-ring circle { fill:none; stroke-width:10; stroke: rgba(255,255,255,0.1); r:54; cx:60; cy:60; }
-.skill-ring .progress { stroke-linecap: round; stroke-dasharray: 339.292; stroke-dashoffset: 339.292; transition: stroke-dashoffset 0.1s ease; }
-.skill-ring:hover .progress { stroke-width:14; }
-.skill-text { position:absolute; top:50%; left:50%; transform: translate(-50%,-50%); text-align:center; color:#fff; font-weight:400; }
+/* Rings */
+.skill-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+    .skill-ring:hover {
+        transform: translateY(-10px); 
+    }
+    .skill-ring svg {
+        transform: rotate(-90deg);
+    }
+
+    .skill-ring circle {
+        fill: none;
+        stroke-width: 10;
+        stroke: rgba(255,255,255,0.1);
+        r: 54;
+        cx: 60;
+        cy: 60;
+    }
+
+    .skill-ring .progress {
+        stroke-linecap: round;
+        stroke-dasharray: 339.292;
+        stroke-dashoffset: 339.292;
+        transition: stroke-dashoffset 0.1s ease;
+    }
+
+    .skill-ring:hover .progress {
+        stroke-width: 14;
+    }
+
+/* Skill text and image */
+.skill-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+    .skill-text img.skill-img {
+        width: 40px;
+        height: 40px;
+        display: none; 
+        transition: all 0.3s ease;
+    }
+.skill-img, .skill-label {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-label {
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+/* Large screens hover: show image and hide label */
+@media (min-width: 768px) {
+    .skill-ring:hover img.skill-img {
+        display: block;
+        width: 40px;
+        height: 40px;
+    }
+
+    .skill-ring:hover .skill-label {
+        display: none;
+    }
+}
+
+/* Small screens: always show image and label */
+@media (max-width: 767px) {
+    .skill-text img.skill-img {
+        display: block;
+        width: 25px;
+        height: 25px;
+    }
+
+    .skill-label {
+        display: block;
+        font-size: 0.9rem;
+    }
+    .skill-ring:active {
+        transform: scale(0.95);
+    }
+}
+
 
 /* ================================
    SERVICES
 ================================ */
 .service-card {
-  background: var(--card);
-  border-radius: 10px;
-  text-align:center;
-  padding:2rem 1.5rem;
-  border:1px solid rgba(255,255,255,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--card);
+    border-radius: 10px;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .service-card:hover {
   transform: translateY(-6px);
@@ -243,6 +326,60 @@ nav.nav a:hover, nav.nav a.active {
 /* ================================
    PROJECTS
 ================================ */
+/* Filter Tabs Styling */
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+    .filter-btn.active, .filter-btn:hover {
+        background: #ffb300;
+        color: #000;
+        border-color: #ffb300;
+        box-shadow: 0 0 15px rgba(255, 179, 0, 0.4);
+    }
+
+/* Grid Logic */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    transition: all 0.5s ease;
+}
+
+/* Animation for hiding projects */
+.project-card {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+    .project-card.hide {
+        display: none;
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .project-card.show {
+        display: block;
+        animation: fadeIn 0.4s ease forwards;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -322,13 +459,99 @@ nav.nav a:hover, nav.nav a.active {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.4rem;
+  color:white;
+
 }
 
 .project-overlay p {
-  font-size: 0.9rem;
-  color: #b7beca;
-  line-height: 1.4;
+    font-size: 0.9rem;
+    color: #b7beca;
+    line-height: 1.4;
+  
 }
+/* Prevent link styles affecting text */
+.project-actions a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 14px;
+}
+
+/* Glass button */
+.action-btn.glass {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+
+    /* Hover elevation + glow */
+    .action-btn.glass:hover {
+        transform: translateY(-6px) scale(1.05);
+        background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
+        box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 0 12px rgba(255,179,0,0.45);
+    }
+
+.icon-light, .launch-icon {
+    width: 20px;
+    height: 20px;
+    color: #fff; /* White color for visibility */
+}
+
+/* GitHub icon fix */
+.icon-light {
+    filter: invert(1);
+}
+
+/* Tooltip label */
+.action-label {
+    position: absolute;
+    top: -42px;
+    background: #000;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+    /* Tooltip arrow */
+    .action-label::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px 6px 0;
+        border-style: solid;
+        border-color: #000 transparent transparent;
+    }
+
+/* Show tooltip */
+.action-btn:hover .action-label {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
 /* ================================
    PROJECT IMAGE OVERLAY (DEFAULT)
 ================================ */
