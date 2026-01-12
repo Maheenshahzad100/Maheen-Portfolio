@@ -336,7 +336,15 @@ nav.nav a:hover, nav.nav a.active {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.9rem;
+
 }
+.filter-tabs {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 12px;
+}
+
 
     .filter-btn.active, .filter-btn:hover {
         background: #ffb300;
@@ -549,6 +557,12 @@ nav.nav a:hover, nav.nav a.active {
 .action-btn:hover .action-label {
     opacity: 1;
     transform: translateY(0) scale(1);
+}
+@media (max-width: 480px) {
+    .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
 }
 
 
@@ -881,12 +895,14 @@ nav.nav a:hover, nav.nav a.active {
   color: #fff;
   font-size: 1.3rem;
   margin-bottom: 10px;
+
 }
-.cert-box p {
-  color: #bbb;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
+    
+    .cert-box p {
+        color: #bbb;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
 .cert-box .skills h5 {
   color: #ffff;
   margin-bottom: 6px;
